@@ -214,6 +214,7 @@ body {
 .btn-answer {
   flex: 1;
   max-width: 160px;
+  position: relative;
   background: white;
   border: 2px solid #cde3f5;
   border-radius: 16px;
@@ -223,6 +224,7 @@ body {
   color: #2c5f8a;
   cursor: pointer;
   transition: all 0.15s;
+  overflow: hidden;
 }
 
 .btn-answer:hover {
@@ -244,6 +246,29 @@ body {
 
 .btn-answer:disabled {
   cursor: default;
+}
+
+.btn-label {
+  display: block;
+}
+
+.btn-mark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.btn-answer.correct .btn-mark {
+  color: #4caf7d;
+}
+
+.btn-answer.wrong .btn-mark {
+  color: #e57373;
 }
 
 .feedback {

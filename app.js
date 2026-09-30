@@ -174,10 +174,12 @@ function renderQuiz() {
       </div>
       <div class="answer-buttons">
         ${q.options.map(opt => `
-          <button class="btn-answer" data-answer="${opt}">${opt}</button>
+          <button class="btn-answer" data-answer="${opt}">
+            <span class="btn-label">${opt}</span>
+            <span class="btn-mark"></span>
+          </button>
         `).join('')}
       </div>
-      <div class="feedback" id="feedback"></div>
       <button class="btn-next" id="btnNext">次へ</button>
     </div>
   `;
@@ -192,22 +194,16 @@ function renderQuiz() {
 function handleAnswer(btn, correct) {
   document.querySelectorAll('.btn-answer').forEach(b => b.disabled = true);
 
-  const feedback = document.getElementById('feedback');
   const nextBtn = document.getElementById('btnNext');
+  const mark = btn.querySelector('.btn-mark');
 
   if (btn.dataset.answer === correct) {
     btn.classList.add('correct');
-    feedback.textContent = '正解！';
-    feedback.className = 'feedback ok';
+    mark.textContent = '○';
     state.score++;
   } else {
     btn.classList.add('wrong');
-    feedback.textContent = `残念… 正解は「${correct}」だよ`;
-    feedback.className = 'feedback ng';
-    // 正解ボタンも光らせる
-    document.querySelectorAll('.btn-answer').forEach(b => {
-      if (b.dataset.answer === correct) b.classList.add('correct');
-    });
+    mark.textContent = '×';
   }
 
   nextBtn.classList.add('visible');
