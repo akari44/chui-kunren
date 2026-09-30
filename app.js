@@ -231,7 +231,7 @@ function renderComplete() {
       <div class="complete-score">${total}問中 ${score}問 正解</div>
       <div class="complete-message">
         勉強もおなじ。<br>「注意をむけて」やろう。<br><br>
-        <span>今できたことは、<br>きっと、できる！！</span>
+        <strong>今できたことは、<br>きっと、できる！！</strong>
       </div>
       <button class="btn-again" id="btnAgain">もう一度</button>
     </div>
