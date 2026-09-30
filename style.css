@@ -331,6 +331,7 @@ body {
   border-radius: 20px;
   padding: 24px;
   font-size: 17px;
+  font-weight: bold;
   color: #2c5f8a;
   line-height: 1.7;
   box-shadow: 0 4px 16px rgba(44, 95, 138, 0.1);
