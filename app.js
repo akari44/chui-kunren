@@ -66,7 +66,7 @@ function renderHome() {
   app.innerHTML = `
     <div class="screen-home">
       <div class="home-title">注意トレーニング</div>
-      <div class="home-sub">音に集中する力を毎日少しずつ鍛えよう</div>
+      <div class="home-sub">ひとつのことに「注意」を向ける力</div>
       <div class="today-card">
         <div class="today-label">今日の音</div>
         <div class="today-sounds">
@@ -129,9 +129,9 @@ function renderTraining() {
     <div class="screen-training">
       <div class="training-step">${state.stepIndex + 1} / ${s.sounds.length}</div>
       <div class="instruction-card">
-        <div class="instruction-label">今は、この音に注意を向けよう</div>
+        <div class="instruction-label">今、注意を向ける音</div>
         <div class="instruction-sound">${sound}</div>
-        <div class="instruction-sub">右から？左から？どこから聞こえる？</div>
+        <div class="instruction-sub">どっちから聞こえる？</div>
       </div>
       <div class="timer-wrap">
         <div class="timer-display">${timeStr}</div>
@@ -170,7 +170,7 @@ function renderQuiz() {
       <div class="quiz-progress">問題 ${state.quizIndex + 1} / ${state.set.questions.length}</div>
       <div class="question-card">
         <div class="question-text">「${q.sound}」は<br>どちらから聞こえましたか？</div>
-        <div class="question-sub">音がなっていた方向を選ぼう</div>
+        <div class="question-sub"></div>
       </div>
       <div class="answer-buttons">
         ${q.options.map(opt => `
@@ -230,8 +230,8 @@ function renderComplete() {
       <div class="complete-title">お疲れさま！</div>
       <div class="complete-score">${total}問中 ${score}問 正解</div>
       <div class="complete-message">
-        同じように注意を向けて、<br>勉強に取り組もう！<br><br>
-        音に集中できた感覚、<br>宿題でも使ってみてね。
+        勉強もおなじ。<br>「注意をむけて」やろう。<br><br>
+        今できたことは、<br>きっと、できる！！
       </div>
       <button class="btn-again" id="btnAgain">もう一度</button>
     </div>
