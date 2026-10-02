@@ -5,7 +5,7 @@ const STEP_DURATION = DEV_MODE ? 5 : 60; // 秒
 const AUDIO_SETS = [
   {
     id: 1,
-    audio:  'audio/set1.wav',
+    audio: 'audio/test1.wav',
     sounds: ['雨の音', '犬の鳴き声', '足音'],
     questions: [
       { sound: '雨の音',    correct: '右', options: ['右', '左'] },
@@ -15,7 +15,7 @@ const AUDIO_SETS = [
   },
   {
     id: 2,
-    audio: 'audio/set2.mp3',
+    audio: 'audio/test2.wav',
     sounds: ['波の音', '鳥の鳴き声', '電車の音'],
     questions: [
       { sound: '波の音',    correct: '左', options: ['右', '左'] },
@@ -25,7 +25,7 @@ const AUDIO_SETS = [
   },
   {
     id: 3,
-    audio: 'audio/set3.mp3',
+    audio: 'audio/test3.wav',
     sounds: ['風の音', '猫の鳴き声', '拍手の音'],
     questions: [
       { sound: '風の音',    correct: '右', options: ['右', '左'] },
