@@ -1,6 +1,6 @@
 // DEV_MODE: true にすると1分→5秒に短縮してテストできる
 const DEV_MODE = false;
-const STEP_DURATION = DEV_MODE ? 5 : 60; // 秒
+const STEP_DURATION = DEV_MODE ? 5 : 45; // 秒
 
 const AUDIO_SETS = [
   {
