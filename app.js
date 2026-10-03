@@ -1,5 +1,5 @@
 // DEV_MODE: true にすると1分→5秒に短縮してテストできる
-const DEV_MODE = true;
+const DEV_MODE = false;
 const STEP_DURATION = DEV_MODE ? 5 : 60; // 秒
 
 const AUDIO_SETS = [
@@ -8,9 +8,9 @@ const AUDIO_SETS = [
     audio: 'audio/test1.wav',
     sounds: ['雨の音', '犬の鳴き声', '足音'],
     questions: [
-      { sound: '雨の音',    correct: '右', options: ['右', '左'] },
+      { sound: '雨の音', correct: '右', options: ['右', '左'] },
       { sound: '犬の鳴き声', correct: '左', options: ['右', '左'] },
-      { sound: '足音',      correct: '右', options: ['右', '左'] },
+      { sound: '足音', correct: '右', options: ['右', '左'] },
     ],
   },
   {
@@ -18,9 +18,9 @@ const AUDIO_SETS = [
     audio: 'audio/test2.wav',
     sounds: ['波の音', '鳥の鳴き声', '電車の音'],
     questions: [
-      { sound: '波の音',    correct: '左', options: ['右', '左'] },
+      { sound: '波の音', correct: '左', options: ['右', '左'] },
       { sound: '鳥の鳴き声', correct: '右', options: ['右', '左'] },
-      { sound: '電車の音',  correct: '左', options: ['右', '左'] },
+      { sound: '電車の音', correct: '左', options: ['右', '左'] },
     ],
   },
   {
@@ -28,9 +28,9 @@ const AUDIO_SETS = [
     audio: 'audio/test3.wav',
     sounds: ['風の音', '猫の鳴き声', '拍手の音'],
     questions: [
-      { sound: '風の音',    correct: '右', options: ['右', '左'] },
+      { sound: '風の音', correct: '右', options: ['右', '左'] },
       { sound: '猫の鳴き声', correct: '右', options: ['右', '左'] },
-      { sound: '拍手の音',  correct: '左', options: ['右', '左'] },
+      { sound: '拍手の音', correct: '左', options: ['右', '左'] },
     ],
   },
 ];
@@ -52,9 +52,9 @@ function pickRandomSet() {
 }
 
 function render() {
-  if (state.screen === 'home')     renderHome();
+  if (state.screen === 'home') renderHome();
   if (state.screen === 'training') renderTraining();
-  if (state.screen === 'quiz')     renderQuiz();
+  if (state.screen === 'quiz') renderQuiz();
   if (state.screen === 'complete') renderComplete();
 }
 
@@ -96,8 +96,8 @@ function tryPlayAudio() {
     state.audio = null;
   }
   const audio = new Audio(state.set.audio);
-  audio.onerror = () => {}; // ダミー中はエラーを無視
-  audio.play().catch(() => {});
+  audio.onerror = () => { }; // ダミー中はエラーを無視
+  audio.play().catch(() => { });
   state.audio = audio;
 }
 
@@ -123,7 +123,7 @@ function renderTraining() {
   const sound = s.sounds[state.stepIndex];
   const mins = Math.floor(state.timeLeft / 60);
   const secs = state.timeLeft % 60;
-  const timeStr = `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+  const timeStr = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
 
   app.innerHTML = `
     <div class="screen-training">
@@ -139,11 +139,11 @@ function renderTraining() {
       </div>
       <div class="progress-dots">
         ${s.sounds.map((_, i) => {
-          let cls = 'dot';
-          if (i < state.stepIndex) cls += ' done';
-          if (i === state.stepIndex) cls += ' active';
-          return `<div class="${cls}"></div>`;
-        }).join('')}
+    let cls = 'dot';
+    if (i < state.stepIndex) cls += ' done';
+    if (i === state.stepIndex) cls += ' active';
+    return `<div class="${cls}"></div>`;
+  }).join('')}
       </div>
       ${DEV_MODE ? '<div class="dummy-note">⚠️ テストモード：1ステップ5秒 / 音声ファイルはダミー</div>' : ''}
     </div>
